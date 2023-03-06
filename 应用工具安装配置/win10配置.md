@@ -1,3 +1,5 @@
+# win10配置
+
 ![image-20230116190830035](D:\工具\Typora\image\image-20230116190830035.png)
 
 ![image-20230116190858610](D:\工具\Typora\image\image-20230116190858610.png)
