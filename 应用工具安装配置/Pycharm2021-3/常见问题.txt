@@ -1,0 +1,4 @@
+1，自带翻译插件问题
+配置翻译，用国内的翻译，建议用有道，还送体验金，直接注册创建即可
+https://ai.youdao.com/console/#/app-overview，创建文本翻译api后
+赋值ID和秘钥要pycharm翻译配置中即可以使用

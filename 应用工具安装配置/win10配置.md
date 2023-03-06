@@ -1,0 +1,21 @@
+![image-20230116190830035](D:\工具\Typora\image\image-20230116190830035.png)
+
+![image-20230116190858610](D:\工具\Typora\image\image-20230116190858610.png)
+
+![image-20230116190949346](D:\工具\Typora\image\image-20230116190949346.png)
+
+![image-20230116191023686](D:\工具\Typora\image\image-20230116191023686.png)
+
+![image-20230116191047338](D:\工具\Typora\image\image-20230116191047338.png)
+
+![image-20230116191117644](D:\工具\Typora\image\image-20230116191117644.png)
+
+注：win10家庭版无组策略编辑器，可自己新建生成一个
+
+## win10文件夹Bonjour删除
+
+1,自己冒出来的文件，还删除不了，自动挂在多个进程上，里面主要的dll文件就是这个mdnsNSP.dll。用管理员打开cmd窗口查看pid
+
+![image-20230122224018648](D:\工具\Typora\image\image-20230122224018648.png)
+
+2,把这些全部关闭了，在删除即可
