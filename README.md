@@ -5,7 +5,7 @@
 
 ## [操作系统](https://github.com/stormblinger-ai/Tale-roads/tree/main/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F)
 
-## [计算机组成原理](https://github.com/stormblinger-ai/Tale-roads/tree/main/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86)
+## [计算机组成原理](https://github.com/stormblinger-ai/Tale-roads/tree/main/notes/计算机组成原理)
 
 ## [计算机网络](https://github.com/stormblinger-ai/Tale-roads/tree/main/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C)
 
