@@ -18,5 +18,5 @@
 
 ## [应用工具安装配置](https://github.com/stormblinger-ai/Tale-roads/tree/main/%E5%BA%94%E7%94%A8%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE)
 
-- [win10配置](/应用工具安装配置/win10配置.md)
+- [win10配置](/notes/应用工具安装配置/win10配置.md)
 
