@@ -25,9 +25,7 @@
 ## [算法与数据结构](https://github.com/stormblinger-ai/Tale-roads/tree/main/notes/算法与数据结构)
 
 - [Python数据结构与算法](/notes/算法与数据结构/Python数据结构-目录.md)
-
 - [牛客算法题](/notes/算法与数据结构/牛客-目录.md)
-- [LeetCode算法题](/notes/算法与数据结构/力扣-目录.md)
 
 
 ## [配置及工具插件](https://github.com/stormblinger-ai/Tale-roads/tree/main/notes/工具)
