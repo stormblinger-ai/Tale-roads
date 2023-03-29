@@ -294,6 +294,9 @@ python manage.py migrate
 
 ### 3.2.2 读写分离
 
+- 创建读库和写库
+- settings中配置
+
 ````
 Django 3.2默认使用的是MySQL Connector/Python作为MySQL的驱动程序，可以通过设置DATABASES字典中的OPTIONS选项来实现读写分离和连接池的配置。
 
@@ -306,7 +309,7 @@ Django 3.2默认使用的是MySQL Connector/Python作为MySQL的驱动程序，�
 ```python
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'dj_db_conn_pool.backends.mysql',
         'NAME': 'mydatabase',
         'USER': 'mydatabaseuser',
         'PASSWORD': 'mypassword',
@@ -324,10 +327,14 @@ DATABASES = {
                 'port': '3306',
                 'user': 'mydatabaseuser',
                 'password': 'mypassword',
-            },
+            },},
+        'POOL_OPTIONS':{
             'pool_size': 10,
             'pool_name': 'mydatabasepool',
             'pool_reset_session': True,
+            'MAX_OVERFLOW': 10, # 在最小的连接基础上，最多增加多少会溢出
+        	'RECYCLE': 24*60*60, # 连接重复可用，即回收次数
+        	'TIMEOUT': 30, # 池中没有连接最多等待时间断开
         },
     },
 }
@@ -337,6 +344,18 @@ DATABASES = {
 
 在使用ORM操作数据库时，Django会自动根据读写操作选择对应的数据库连接。如果是读操作，会使用从库的连接，如果是写操作，会使用主库的连接。同时，连接池会自动管理连接的创建和释放，避免频繁地创建和销毁连接，提高性能和稳定性。
 ````
+
+- 模型数据迁移
+
+``` 
+python manage.py makemigrations
+python manage.py migrate
+注意：库中有数据存在的情况下，添加字段，需给默认值
+```
+
+- 主从同步
+- 编写router类，用于数据表多，量大时
+- views增删改查
 
 ### 3.2.3 分库分表
 
