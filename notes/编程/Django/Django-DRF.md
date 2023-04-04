@@ -383,13 +383,60 @@ view：原始view --> APIView
 可以发现上面的代码耦合度并不高，虽然模块独立性高，开发灵活性也高，但是不够方便
 ===========
 2.接下来，我们把原始的serializer模型序列化器换成高级一点的modelserializer序列化器，提高了耦合度，强耦合，但是开发方便
-# date = serializers.Datefield(source=pub_date)
+# date = serializers.Datefield(source=pub_date)  # 切记起别名发往前端，或接受前端数据，需要对应meta里面fields,exclude的资源对象，不要少，否则报错，修改和增加不了数据
 class Meta:
 	model = book
 	fields = '__all__'/exclude = 'date'
 	
-3.为了开发效率，我们进一步把视图类也换成genericAPIView，
+3.为了开发效率，我们进一步把视图类也换成genericAPIView
+class Bookserializer(serializer.modelserializer):  # 序列化器不变
+	class Meta:
+		model = book
+		fields = ['__all__']
+class   BookView(GenericAPIView):
+    queryset = Book.objects.all()  # 1,获取资源对象
+    serializer_class = BookSerializers  # 2,获取序列化器类
 
+    def get(self, request):
+        book = self.get_serializer(instance=self.get_queryset(), many=True)
+        return Response(book.data)
+
+    def post(self, request):
+        book = self.get_serializer(data=request.data)
+        if book.is_valid():
+            book.save()
+            return Response(book.data)
+        else:
+            return Response(book.error)
+class BookDetailView(GenericAPIView):
+    queryset = Book.objects.all()  # 1,获取资源对象
+    serializer_class = BookSerializers  # 2,获取序列化器类
+
+    def get(self,request, pk):
+        book = self.get_serializer(instance=self.get_object())
+        return Response(book.data)
+
+    def delete(self, request,pk):
+        self.get_object().delete()
+        return Response()
+
+    def put(self, request, pk):
+        book = self.get_serializer(instance=self.get_object(), data=request.data)
+        if book.is_valid():
+            book.save()
+            return Response(book.data)
+        else:
+            return Response(book.error)
+
+		
+	
+```
+
+- 我们这里新建两张表用来进一步扩展封装接口
+
+``` 
+class publish(models.Model):
+	
 ```
 
 
