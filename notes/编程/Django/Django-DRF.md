@@ -432,7 +432,7 @@ class BookDetailView(GenericAPIView):
 	
 ```
 
-- 我们这里新建两张表用来进一步扩展封装接口
+- 我们这里新建两张表用来进一步扩展封装接口，5个视图扩展类
 
 ``` 
 class publish(models.Model):
