@@ -21,3 +21,18 @@
 ![image-20230122224018648](D:\工具\Typora\image\image-20230122224018648.png)
 
 2,把这些全部关闭了，在删除即可
+
+## 右键添加新建MD文件
+
+新建text文件，把下面内容复制，然后另存为reg文件，双击运行即可，原理为修改注册表，也可以直接regedit,找到下面几个中括号的选项新建项手动修改
+
+```
+Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\.md]
+@="Typora.md"
+"Content Type"="text/markdown"
+"PerceivedType"="text"
+[HKEY_CLASSES_ROOT\.md\ShellNew]
+"NullFile"=""
+```
+
